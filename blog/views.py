@@ -14,8 +14,10 @@ def post_list(request):
     )
 def post_detail(request,post_id):
     post = get_object_or_404(Post,id=post_id)
+    comments = post.comment_set.all()
     context = {
-        "post":post
+        "post":post,
+        "comments":comments
     }
     return render(
         request, 

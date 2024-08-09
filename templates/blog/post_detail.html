@@ -7,6 +7,17 @@
     <h1>{{ post.title }}</h1>
     <p>By {{ post.author.name }} | {{ post.published_date }}</p>
     <p>{{ post.content }}</p>
-    
+
+
+    <h2>Comments:</h2>
+    <ol>
+        {% for comment in comments %}
+            <li> <p>{{ comment.author_name }} said:</p></li>
+            <p>"{{ comment.text }}"</p> 
+            <p>on {{ comment.created_date }}</p>
+        {% endfor %}
+    </ol>
+
+
 </body>
 </html>
