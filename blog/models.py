@@ -27,5 +27,13 @@ class Post(models.Model):
             published_less_than_7_days_ago = False
         return published_less_than_7_days_ago
     
+class Comment(models.Model):
+    post = models.ForeignKey(Post, on_delete=models.CASCADE)
+    author_name = models.CharField(max_length=100)
+    text = models.TextField()
+    created_date = models.DateTimeField(default=timezone.now)
+
+    def __str__(self):
+        return f'Comment by {self.author_name} on {self.post}'
 
 
