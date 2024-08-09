@@ -8,8 +8,9 @@
     <ol>
         {% for post in posts_list %}
             <li>
-                <h2>{{ post.title }}</h2>
+                <h2><a href="{%url 'post_detail' post.id%}" target="_blank">{{post.title}}</h2></a> 
                 <p>{{ post.published_date }}</p>
+                <p>Author: <a href="{%url 'posts_by_author' author_id=post.author.id%}" target="_blank">{{post.author.name}}</a></p>
             </li>
         {% endfor %}
     </ol>
